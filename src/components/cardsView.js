@@ -497,12 +497,16 @@ export class CardsView {
             <p class="section-desc">Canales de comunicación directa, perfiles de seguridad ofensiva y clave pública.</p>
           </div>
 
-          <div class="guide-contact-grid" style="grid-template-columns: minmax(320px, 680px); justify-content: center;">
-            <!-- Canales de Contacto & Enlaces -->
+          <div class="guide-contact-grid">
+            <!-- Columna Izquierda: Plataformas y Enlaces -->
             <div class="contact-card">
               <h3 class="guide-title">
-                <span class="text-neon">📡</span> Canales de Enlace & Contacto
+                <span class="text-neon">📡</span> Plataformas & Perfiles
               </h3>
+              <p class="guide-desc">
+                Documentación técnica, repositorios de investigación ofensiva y perfil en plataformas de hacking.
+              </p>
+
               <div class="contact-links-list">
                 <a href="${profileData.socials.gitbook}" target="_blank" class="contact-link-item">
                   <span class="link-icon">📚</span>
@@ -532,13 +536,40 @@ export class CardsView {
                     <span class="link-sub">${profileData.socials.hackthebox}</span>
                   </div>
                 </a>
-                <a href="mailto:${profileData.socials.email}" class="contact-link-item">
-                  <span class="link-icon">📧</span>
-                  <div>
-                    <b>Email Directo</b>
-                    <span class="link-sub">${profileData.socials.email}</span>
-                  </div>
+              </div>
+            </div>
+
+            <!-- Columna Derecha: Contacto Directo & Clave PGP -->
+            <div class="contact-card">
+              <h3 class="guide-title">
+                <span class="text-neon">🔐</span> Contacto Directo & Cifrado
+              </h3>
+              <p class="guide-desc">
+                Canal directo para comunicaciones profesionales, consultas técnicas y coordinación de proyectos.
+              </p>
+
+              <div class="contact-details-box">
+                <div class="contact-detail-row">
+                  <span class="detail-label">📧 Correo:</span>
+                  <span class="detail-value text-neon">${profileData.socials.email}</span>
+                </div>
+                <div class="contact-detail-row">
+                  <span class="detail-label">📍 Ubicación:</span>
+                  <span class="detail-value">Segovia, España (CET / UTC+1)</span>
+                </div>
+                <div class="contact-detail-row">
+                  <span class="detail-label">⚡ Estado:</span>
+                  <span class="detail-value" style="color: var(--accent-emerald);">● Conectado & Operativo</span>
+                </div>
+              </div>
+
+              <div class="contact-cta-action" style="display: flex; gap: 0.8rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                <a href="mailto:${profileData.socials.email}" class="btn-cyber-primary" style="flex: 1; justify-content: center;">
+                  <span>✉️ Enviar Correo</span>
                 </a>
+                <button id="btn-copy-email" class="btn-cyber-secondary" style="flex: 1; justify-content: center;">
+                  <span>📋 Copiar Email</span>
+                </button>
               </div>
 
               <div class="pgp-box">
@@ -649,6 +680,17 @@ export class CardsView {
         soundFx.success();
         pgpBtn.textContent = '¡Copiado!';
         setTimeout(() => pgpBtn.textContent = 'Copiar', 2000);
+      });
+    }
+
+    // Email Copy button
+    const emailBtn = document.getElementById('btn-copy-email');
+    if (emailBtn) {
+      emailBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(profileData.socials.email);
+        soundFx.success();
+        emailBtn.textContent = '¡Copiado!';
+        setTimeout(() => emailBtn.innerHTML = '<span>📋 Copiar Email</span>', 2000);
       });
     }
   }
