@@ -14,7 +14,7 @@ export const profileData = {
     " |  __/ \\__, |_  _ <|  _  | |_| |___) |",
     " |_|    |___/|_| \\_\\_| |_|\\___/|____/ ",
     "",
-    " > OPERATOR: Osman (pyr0s) // LOC: Segovia, ES",
+    " > OPERATOR: Osman (pyrhos) // LOC: Segovia, ES",
     " > TARGET OBJECTIVE: Red Team / Pentesting / Adversary Emulation",
     " > Terminal lista. Escribe 'help' para explorar proyectos, writeups y wiki."
   ],
@@ -42,16 +42,16 @@ export const profileData = {
     },
     {
       category: "Hardware & Fabricación Aditiva",
-      items: ["Anycubic Kobra X (PETG, PETG-CF)", "OrcaSlicer Tuning", "FreeCAD (Modelado 3D)", "Blender Mesh Editing", "Reciclaje PET & Pultrusión"]
+      items: ["Anycubic Kobra X (PETG, PLA, PLA +)", "OrcaSlicer Tuning", "FreeCAD (Modelado 3D)"]
     }
   ],
   experience: [
     {
-      period: "2024 - 2025",
+      period: "2025 - 2026",
       isCurrent: true,
-      role: "Técnico / Becario de Ciberseguridad & Sistemas (SOC / Sysadmin)",
-      company: "EVOLK SL (MSSP)",
-      location: "España",
+      role: "Técnico / Becario de Ciberseguridad & Sistemas (Técnico de SOC)",
+      company: "EVOLK SL",
+      location: "Segovia, España",
       badgeColor: "emerald",
       icon: "🛡️",
       description: "Operaciones de SOC, monitorización en soluciones EPDR ante incidentes reales, administración de sistemas y desarrollo de tooling interno para automatización.",
@@ -62,12 +62,12 @@ export const profileData = {
         "Elaboré documentación técnica de alto impacto: redacción de dossiers de auditoría comercial para pymes e informe técnico de estado de migración de firewalls WatchGuard presentado al CTO.",
         "Brindé soporte técnico remoto de nivel 2 y resolución de incidencias en servidores e infraestructuras de clientes."
       ],
-      skills: ["EPDR Forensics", "PowerShell", "Flask", "SQLite", "WatchGuard", "SOC Triage", "APIs Integration"]
+      skills: ["EPDR Forensics", "PowerShell", "Flask", "WatchGuard", "SOC Triage", "APIs Integration"]
     }
   ],
   education: [
     {
-      period: "2024 - PRESENTE",
+      period: "2026 - PRESENTE",
       isCurrent: true,
       degree: "CFGS Administración de Sistemas Informáticos en Red (ASIR)",
       institution: "IES Julián Marías",
@@ -83,7 +83,7 @@ export const profileData = {
       skills: ["Redes TCP/IP", "Linux Server", "Windows Server", "Seguridad Perimetral", "Bash", "PowerShell"]
     },
     {
-      period: "2022 - 2024",
+      period: "2024 - 2026",
       isCurrent: false,
       degree: "CFGM Instalaciones de Telecomunicaciones",
       institution: "IES María Moliner",
@@ -100,14 +100,17 @@ export const profileData = {
     }
   ],
   certifications: [
+    { name: "CPTS (Certified Penetration Testing Specialist)", issuer: "HTB Academy", year: "2025", status: "~50% En Curso" },
+    { name: "Hacking web", issuer: "Hack4u", year: "2026", status: "En Curso" },
     { name: "eJPT v2 (Junior Penetration Tester)", issuer: "eLearnSecurity / INE", year: "2024", status: "Certificado" },
-    { name: "Hack The Box — Rango Hacker", issuer: "HackTheBox", year: "2024", status: "Rango Oficial" },
-    { name: "CPTS (Certified Penetration Testing Specialist)", issuer: "HTB Academy", year: "2025", status: "~50% En Curso" }
+    { name: "Introducción al hacking", issuer: "Hack4u", year: "2025", status: "Certificado" },
+    { name: "Introducción a Linux", issuer: "Hack4u", year: "2025", status: "Certificado" }
   ],
   wiki: {
     url: "https://pyrhos.gitbook.io",
     title: "Pyrhos Technical GitBook",
     topics: [
+      "Conocimientos generales de Redes, Programación, Sistemas Operativos, Fundamentos de Hardware",
       "Web Fuzzing & Enumeración (FFuF)",
       "Ataques de Fuerza Bruta y Credenciales (Hydra, Medusa, Hashcat)",
       "Directorio Activo & Kerberos (Pass the Ticket, OverPass-the-Hash, LLMNR/NBT-NS)",
