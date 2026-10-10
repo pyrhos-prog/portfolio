@@ -359,6 +359,25 @@ export class CardsView {
                   </div>
                 `).join('')}
               </div>
+
+              <!-- Tarjeta de Certificaciones -->
+              <div class="timeline-glass-card certs-glass-box">
+                <div class="certs-header-row">
+                  <span class="certs-icon">📜</span>
+                  <h4 class="certs-title">Certificaciones Profesionales & Acreditaciones</h4>
+                </div>
+                <div class="certs-list">
+                  ${profileData.certifications.map(c => `
+                    <div class="cert-item">
+                      <div class="cert-info">
+                        <span class="cert-name">${c.name}</span>
+                        <span class="cert-issuer">${c.issuer} // ${c.year}</span>
+                      </div>
+                      <span class="badge badge-purple">${c.status}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
             </div>
           </div>
         </div>
