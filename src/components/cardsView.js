@@ -20,14 +20,14 @@ export class CardsView {
         <div class="cyber-container">
           <div class="hero-terminal-badge">
             <span class="live-dot"></span>
-            <span class="badge-text">STATUS: SECURE_HOST_ONLINE // PORT_22: FILTERED</span>
+            <span class="badge-text">OPERATOR: OSMAN (PYRHOS) // LOC: SEGOVIA, ES // RED TEAM & PENTESTING</span>
           </div>
-          <h1 class="hero-title glitch-text" data-text="PYRHOS // CYBER_PORTFOLIO">
-            PYRHOS <span class="text-neon">//</span> PORTFOLIO
+          <h1 class="hero-title glitch-text" data-text="OSMAN // PYRHOS">
+            OSMAN <span class="text-neon">//</span> PYRHOS
           </h1>
           <p class="hero-subtitle">
-            Laboratorio de <span class="highlight">Ciberseguridad</span>, <span class="highlight">Honeypots</span>, 
-            <span class="highlight">SysAdmin Linux</span> y documentación de retos <span class="highlight">CTF</span>.
+            <b>Junior Penetration Tester & Red Team Enthusiast</b> • Segovia, España.<br/>
+            Especializado en evaluación de <span class="highlight">Active Directory</span>, auditoría de <span class="highlight">aplicaciones web</span>, telemetría y <span class="highlight">tooling ofensivo en Python</span>.
           </p>
           
           <div class="hero-terminal-snippet">
@@ -35,12 +35,13 @@ export class CardsView {
               <span class="dot dot-red"></span>
               <span class="dot dot-yellow"></span>
               <span class="dot dot-green"></span>
-              <span class="snippet-title">bash — quick-access</span>
+              <span class="snippet-title">bash — pyrhos@segovia-lab:~</span>
             </div>
             <div class="snippet-body">
-              <span class="text-neon">pyr0s@cyber-lab:~$</span> cat /etc/motd<br/>
-              <span class="text-muted">> Bienvenido. Puedes navegar usando la interfaz gráfica o la terminal interactiva.</span><br/>
-              <span class="text-neon">pyr0s@cyber-lab:~$</span> <span class="typing-cursor">neofetch</span>
+              <span class="text-neon">pyrhos@segovia-lab:~$</span> cat /etc/identity<br/>
+              <span class="text-muted">> Certificaciones: eJPT v2 | HTB Hacker | CPTS (HTB Academy ~50% en curso)</span><br/>
+              <span class="text-muted">> Formación: CFGS ASIR (IES Julián Marías) + CFGM Telecomunicaciones (IES María Moliner)</span><br/>
+              <span class="text-neon">pyrhos@segovia-lab:~$</span> <span class="typing-cursor">whoami --objective</span>
             </div>
           </div>
 
@@ -48,11 +49,14 @@ export class CardsView {
             <button class="btn-cyber-primary" id="btn-hero-term">
               <span class="btn-icon">>_</span> Abrir Terminal Interactiva
             </button>
-            <a href="#proyectos" class="btn-cyber-secondary">
-              <span>📁 Explorar Proyectos</span>
+            <a href="https://pyrhos.gitbook.io" target="_blank" class="btn-cyber-secondary">
+              <span>📚 Wiki Técnica (GitBook)</span>
             </a>
-            <a href="#ctfs" class="btn-cyber-secondary">
-              <span>🚩 Retos CTF</span>
+            <a href="https://beacons.ai/pyrhos" target="_blank" class="btn-cyber-secondary">
+              <span>🌐 Hub Personal</span>
+            </a>
+            <a href="#proyectos" class="btn-cyber-secondary">
+              <span>📁 Ver Proyectos</span>
             </a>
           </div>
 
@@ -414,14 +418,83 @@ export class CardsView {
     `;
   }
 
+  renderWikiSection() {
+    return `
+      <section class="section-container" id="wiki">
+        <div class="cyber-container">
+          <div class="section-header">
+            <div class="section-tag">[ 05. BASE_DE_CONOCIMIENTO_PUBLICA ]</div>
+            <h2 class="section-title">Wiki Técnica & Recursos</h2>
+            <p class="section-desc">Documentación, apuntes estructurados y cheatsheets de ciberseguridad ofensiva en español alojados en GitBook.</p>
+          </div>
+
+          <div class="timeline-glass-card wiki-banner-card">
+            <div class="wiki-banner-content">
+              <div class="wiki-header-badge">
+                <span class="live-dot"></span>
+                <span>PLATAFORMA PÚBLICA ENLACE DIRECTO</span>
+              </div>
+              <h3 class="wiki-main-title">📚 pyrhos.gitbook.io</h3>
+              <p class="wiki-main-desc">
+                Metodología propia de documentación basada en Markdown y Obsidian, estructurada para consulta rápida durante evaluaciones y retos ofensivos.
+              </p>
+              
+              <div class="wiki-topics-grid">
+                <div class="wiki-topic-card">
+                  <span class="topic-icon">🎯</span>
+                  <div class="topic-title">Web Fuzzing & Enumeración</div>
+                  <div class="topic-tags">FFuF, dirbusting, parameter fuzzing</div>
+                </div>
+                <div class="wiki-topic-card">
+                  <span class="topic-icon">🔑</span>
+                  <div class="topic-title">Ataques a Credenciales</div>
+                  <div class="topic-tags">Hydra, Medusa, Hashcat rules</div>
+                </div>
+                <div class="wiki-topic-card">
+                  <span class="topic-icon">🏰</span>
+                  <div class="topic-title">Directorio Activo & Kerberos</div>
+                  <div class="topic-tags">Pass the Ticket (PtT), OverPass-the-Hash, LLMNR</div>
+                </div>
+                <div class="wiki-topic-card">
+                  <span class="topic-icon">🛡️</span>
+                  <div class="topic-title">Proxies de Intercepción</div>
+                  <div class="topic-tags">Burp Suite, Caido, OWASP ZAP</div>
+                </div>
+                <div class="wiki-topic-card">
+                  <span class="topic-icon">🌐</span>
+                  <div class="topic-title">OSINT Estructurado</div>
+                  <div class="topic-tags">Shodan dorks, FOFA syntax, Subfinder</div>
+                </div>
+                <div class="wiki-topic-card">
+                  <span class="topic-icon">📡</span>
+                  <div class="topic-title">Auditoría Inalámbrica</div>
+                  <div class="topic-tags">hcxdumptool, PMKID, WPA2/WPA3</div>
+                </div>
+              </div>
+
+              <div class="wiki-actions-row">
+                <a href="${profileData.socials.gitbook}" target="_blank" class="btn-cyber-primary">
+                  <span>📖 Abrir Wiki en pyrhos.gitbook.io &rarr;</span>
+                </a>
+                <a href="${profileData.socials.beacons}" target="_blank" class="btn-cyber-secondary">
+                  <span>🔗 Visitar Hub Personal (Beacons)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
   renderGuideAndContactSection() {
     return `
       <section class="section-container" id="contacto">
         <div class="cyber-container">
           <div class="section-header">
-            <div class="section-tag">[ 05. WORKFLOW_Y_CONTACTO ]</div>
+            <div class="section-tag">[ 06. WORKFLOW_Y_CONTACTO ]</div>
             <h2 class="section-title">Contacto & Guía de Contenido</h2>
-            <p class="section-desc">Cómo añadir contenido nuevo de forma inmediata y canales de contacto.</p>
+            <p class="section-desc">Canales de comunicación segura y cómo añadir nuevos writeups o proyectos.</p>
           </div>
 
           <div class="guide-contact-grid">
@@ -467,6 +540,20 @@ export class CardsView {
                 <span class="text-neon">📡</span> Canales de Enlace
               </h3>
               <div class="contact-links-list">
+                <a href="${profileData.socials.gitbook}" target="_blank" class="contact-link-item">
+                  <span class="link-icon">📚</span>
+                  <div>
+                    <b>Wiki Técnica (GitBook)</b>
+                    <span class="link-sub">${profileData.socials.gitbook}</span>
+                  </div>
+                </a>
+                <a href="${profileData.socials.beacons}" target="_blank" class="contact-link-item">
+                  <span class="link-icon">🌐</span>
+                  <div>
+                    <b>Hub Personal (Beacons)</b>
+                    <span class="link-sub">${profileData.socials.beacons}</span>
+                  </div>
+                </a>
                 <a href="${profileData.socials.github}" target="_blank" class="contact-link-item">
                   <span class="link-icon">⚡</span>
                   <div>
@@ -477,15 +564,8 @@ export class CardsView {
                 <a href="${profileData.socials.hackthebox}" target="_blank" class="contact-link-item">
                   <span class="link-icon">🚩</span>
                   <div>
-                    <b>HackTheBox</b>
+                    <b>HackTheBox (Rango Hacker)</b>
                     <span class="link-sub">${profileData.socials.hackthebox}</span>
-                  </div>
-                </a>
-                <a href="${profileData.socials.tryhackme}" target="_blank" class="contact-link-item">
-                  <span class="link-icon">🛡️</span>
-                  <div>
-                    <b>TryHackMe</b>
-                    <span class="link-sub">${profileData.socials.tryhackme}</span>
                   </div>
                 </a>
                 <a href="mailto:${profileData.socials.email}" class="contact-link-item">
@@ -518,6 +598,7 @@ export class CardsView {
       ${this.renderCtfsSection()}
       ${this.renderTimelineSection()}
       ${this.renderSkillsSection()}
+      ${this.renderWikiSection()}
       ${this.renderGuideAndContactSection()}
     `;
   }

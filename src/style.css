@@ -1874,3 +1874,82 @@ code {
     height: 480px;
   }
 }
+
+/* ===================================================================
+   TECHNICAL WIKI & RESOURCES STYLING
+   =================================================================== */
+
+.wiki-banner-card {
+  padding: 2.2rem;
+  background: rgba(18, 10, 34, 0.75);
+  border: 1px solid var(--border-subtle);
+}
+.wiki-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-light);
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid var(--border-subtle);
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  margin-bottom: 0.8rem;
+}
+.wiki-main-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+.wiki-main-desc {
+  color: #cbd5e1;
+  font-size: 1rem;
+  max-width: 800px;
+  margin-bottom: 1.8rem;
+  line-height: 1.6;
+}
+.wiki-topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.wiki-topic-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 1.2rem;
+  transition: all 0.25s ease;
+}
+.wiki-topic-card:hover {
+  background: rgba(168, 85, 247, 0.1);
+  border-color: var(--accent-light);
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+}
+.topic-icon {
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.topic-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+.topic-tags {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.wiki-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+

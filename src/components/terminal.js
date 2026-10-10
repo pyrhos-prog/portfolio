@@ -223,6 +223,11 @@ export class Terminal {
         this.printLine(`<span class="text-neon">[AUDIO] Efectos de sonido terminal: <b>${enabled ? 'ACTIVADOS' : 'SILENCIADOS'}</b>.</span>`);
         break;
 
+      case 'wiki':
+      case 'gitbook':
+        this.cmdWiki();
+        break;
+
       case 'socials':
       case 'contact':
         this.cmdContact();
@@ -276,6 +281,7 @@ export class Terminal {
         <div class="help-row"><span class="cmd-name">theme [purple|green|cyan|red]</span><span class="cmd-desc">Cambia la paleta de colores de la terminal</span></div>
         <div class="help-row"><span class="cmd-name">matrix</span><span class="cmd-desc">Activa/desactiva la lluvia digital Matrix</span></div>
         <div class="help-row"><span class="cmd-name">audio</span><span class="cmd-desc">Activa o silencia los efectos sonoros</span></div>
+        <div class="help-row"><span class="cmd-name">wiki</span><span class="cmd-desc">Acceso a la Wiki técnica pública en GitBook (cheatsheets)</span></div>
         <div class="help-row"><span class="cmd-name">contact</span><span class="cmd-desc">Canales de contacto y clave pública PGP</span></div>
         <div class="help-row"><span class="cmd-name">clear</span><span class="cmd-desc">Limpia la pantalla de la terminal (Ctrl+L)</span></div>
       </div>
@@ -498,12 +504,30 @@ export class Terminal {
     }
   }
 
+  cmdWiki() {
+    const html = `
+      <b class="text-neon">📚 WIKI TÉCNICA & APUNTES DE CIBERSEGURIDAD:</b><br/>
+      <span class="text-muted">Plataforma pública en GitBook con metodología propia en Markdown/Obsidian:</span><br/>
+      👉 <a href="${profileData.socials.gitbook}" target="_blank" class="text-neon"><b>${profileData.socials.gitbook}</b></a><br/><br/>
+      <b>Temarios y Cheatsheets disponibles:</b><br/>
+      &nbsp;&nbsp;• <b>Web Fuzzing & Enumeración:</b> FFuF, fuzzing de parámetros y directorios.<br/>
+      &nbsp;&nbsp;• <b>Ataques a Credenciales:</b> Hydra, Medusa, Hashcat rules y wordlists.<br/>
+      &nbsp;&nbsp;• <b>Directorio Activo & Kerberos:</b> Pass the Ticket (PtT), OverPass-the-Hash, LLMNR/NBT-NS.<br/>
+      &nbsp;&nbsp;• <b>Proxies de Intercepción:</b> Burp Suite, Caido, OWASP ZAP.<br/>
+      &nbsp;&nbsp;• <b>OSINT Estructurado:</b> Shodan dorks, FOFA syntax, Subfinder.<br/>
+      &nbsp;&nbsp;• <b>Auditoría Inalámbrica:</b> hcxdumptool, PMKID, WPA2/WPA3.<br/>
+    `;
+    this.printLine(html);
+  }
+
   cmdContact() {
     const html = `
       <b class="text-neon">📡 ENLACES DE CONTACTO & CANALES SEGUROS:</b><br/>
+      &nbsp;&nbsp;• Wiki Técnica: <a href="${profileData.socials.gitbook}" target="_blank">${profileData.socials.gitbook}</a><br/>
+      &nbsp;&nbsp;• Hub Personal: <a href="${profileData.socials.beacons}" target="_blank">${profileData.socials.beacons}</a><br/>
       &nbsp;&nbsp;• GitHub: <a href="${profileData.socials.github}" target="_blank">${profileData.socials.github}</a><br/>
-      &nbsp;&nbsp;• LinkedIn: <a href="${profileData.socials.linkedin}" target="_blank">${profileData.socials.linkedin}</a><br/>
-      &nbsp;&nbsp;• Email: <a href="mailto:${profileData.socials.email}">${profileData.socials.email}</a><br/>
+      &nbsp;&nbsp;• HackTheBox: <a href="${profileData.socials.hackthebox}" target="_blank">${profileData.socials.hackthebox}</a> (Rango Hacker)<br/>
+      &nbsp;&nbsp;• Email Seguro: <a href="mailto:${profileData.socials.email}">${profileData.socials.email}</a><br/>
       &nbsp;&nbsp;• PGP Key Fingerprint: <span class="text-neon">${profileData.socials.pgp}</span>
     `;
     this.printLine(html);
@@ -513,7 +537,7 @@ export class Terminal {
     const val = this.input.value.trim();
     const parts = val.split(' ');
     if (parts.length === 1) {
-      const commands = ['help', 'ls', 'cat', 'open', 'whoami', 'skills', 'exp', 'edu', 'ctf', 'neofetch', 'theme', 'gui', 'matrix', 'audio', 'contact', 'clear', 'exit'];
+      const commands = ['help', 'ls', 'cat', 'open', 'whoami', 'skills', 'exp', 'edu', 'ctf', 'wiki', 'neofetch', 'theme', 'gui', 'matrix', 'audio', 'contact', 'clear', 'exit'];
       const matches = commands.filter(c => c.startsWith(val));
       if (matches.length === 1) {
         this.input.value = matches[0] + ' ';

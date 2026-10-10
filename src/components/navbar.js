@@ -28,6 +28,7 @@ export class Navbar {
           <a href="#ctfs" class="nav-link">CTFs</a>
           <a href="#trayectoria" class="nav-link">Trayectoria</a>
           <a href="#skills" class="nav-link">Skills</a>
+          <a href="#wiki" class="nav-link">Wiki</a>
           <a href="#contacto" class="nav-link">Contacto</a>
         </nav>
 
@@ -124,7 +125,7 @@ export class Navbar {
 
     // Active link highlighting on scroll
     window.addEventListener('scroll', () => {
-      const sections = ['inicio', 'proyectos', 'ctfs', 'trayectoria', 'skills', 'contacto'];
+      const sections = ['inicio', 'proyectos', 'ctfs', 'trayectoria', 'skills', 'wiki', 'contacto'];
       const scrollPos = window.scrollY + 120;
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
