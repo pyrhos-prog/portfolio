@@ -106,20 +106,29 @@ Comandos disponibles:
 
 ---
 
-## 🌐 Despliegue en GitHub Pages
+## 🌐 Despliegue en GitHub Pages (mediante SSH)
 
 El proyecto ya incluye el flujo automatizado de GitHub Actions en `.github/workflows/deploy.yml`:
 
 1. Crea un repositorio en tu cuenta de GitHub (por ejemplo `portfolio-hacker` o `<tu-usuario>.github.io`).
-2. Sube el contenido de la carpeta `portfolio-hacker`:
+2. Comprueba que tu clave SSH pública esté añadida en tu cuenta de GitHub (**Settings > SSH and GPG keys**):
    ```bash
-   git init
-   git add .
-   git commit -m "feat: portfolio hacker v1.0"
-   git branch -M main
-   git remote add origin https://github.com/<tu-usuario>/<tu-repo>.git
+   # Ver tu clave pública para copiarla en GitHub:
+   cat ~/.ssh/id_ed25519.pub
+   # (o cat ~/.ssh/id_rsa.pub si usas RSA)
+   ```
+3. Verifica la conexión por SSH con GitHub:
+   ```bash
+   ssh -T git@github.com
+   # Debe responder: "Hi <tu-usuario>! You've successfully authenticated..."
+   ```
+4. Vincula el repositorio por **SSH** y sube los cambios:
+   ```bash
+   cd portfolio-hacker
+   git remote add origin git@github.com:<tu-usuario>/<tu-repo>.git
    git push -u origin main
    ```
-3. En GitHub, ve a **Settings > Pages**:
+5. En GitHub, ve a **Settings > Pages**:
    - En **Build and deployment > Source**, selecciona **GitHub Actions**.
-4. ¡El workflow se ejecutará automáticamente y tu portfolio estará online en pocos segundos!
+6. ¡El workflow compilará y desplegará tu portfolio automáticamente en segundos!
+
