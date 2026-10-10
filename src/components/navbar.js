@@ -27,9 +27,9 @@ export class Navbar {
           <a href="#proyectos" class="nav-link">Proyectos</a>
           <a href="#ctfs" class="nav-link">CTFs</a>
           <a href="#trayectoria" class="nav-link">Trayectoria</a>
+          <a href="#certificaciones" class="nav-link">Certificaciones</a>
           <a href="#skills" class="nav-link">Skills</a>
           <a href="#wiki" class="nav-link">Wiki</a>
-          <a href="#contacto" class="nav-link">Contacto</a>
         </nav>
 
         <div class="nav-tools">

@@ -100,11 +100,61 @@ export const profileData = {
     }
   ],
   certifications: [
-    { name: "CPTS (Certified Penetration Testing Specialist)", issuer: "HTB Academy", year: "2025", status: "~50% En Curso" },
-    { name: "Hacking web", issuer: "Hack4u", year: "2026", status: "En Curso" },
-    { name: "eJPT v2 (Junior Penetration Tester)", issuer: "eLearnSecurity / INE", year: "2024", status: "Certificado" },
-    { name: "Introducción al hacking", issuer: "Hack4u", year: "2025", status: "Certificado" },
-    { name: "Introducción a Linux", issuer: "Hack4u", year: "2025", status: "Certificado" }
+    {
+      id: "cpts",
+      name: "CPTS (Certified Penetration Testing Specialist)",
+      issuer: "HTB Academy",
+      year: "2025 - 2026",
+      status: "En Curso (~50%)",
+      icon: "🎯",
+      url: "", // Pega aquí el enlace de tu certificado o perfil de HTB
+      description: "Evaluación integral de infraestructuras corporativas, pivoting de múltiples saltos, auditoría avanzada de Active Directory, evasión de AV y redacción de informes técnicos.",
+      skills: ["Active Directory", "Network Pivoting", "Evasión de Defensas", "Web Pentesting", "Privilege Escalation"]
+    },
+    {
+      id: "ejpt-v2",
+      name: "eJPT v2 (Junior Penetration Tester)",
+      issuer: "eLearnSecurity / INE",
+      year: "2024",
+      status: "Certificado Oficial",
+      icon: "🛡️",
+      url: "", // Pega aquí el enlace de tu título oficial de eJPT v2
+      description: "Certificación práctica oficial de evaluación y explotación de vulnerabilidades en redes empresariales, routing con Nmap, explotación con Metasploit y escalada de privilegios.",
+      skills: ["Evaluación de Vulnerabilidades", "Auditoría de Redes", "Metasploit", "Nmap Routing", "Explotación Manual"]
+    },
+    {
+      id: "hack4u-web",
+      name: "Hacking Web Profesional",
+      issuer: "Hack4u",
+      year: "2026",
+      status: "En Curso",
+      icon: "🌐",
+      url: "", // Pega aquí el enlace de tu certificado de Hack4u
+      description: "Identificación y explotación exhaustiva de vectores vulnerables web basados en OWASP Top 10: SQLi, XSS, CSRF, SSRF, IDOR, LFI/RFI y manipulación de tokens de sesión.",
+      skills: ["OWASP Top 10", "SQL Injection", "XSS & CSRF", "Burp Suite", "SSRF", "Autenticación Web"]
+    },
+    {
+      id: "hack4u-intro",
+      name: "Introducción al Hacking Ético",
+      issuer: "Hack4u",
+      year: "2025",
+      status: "Certificado Oficial",
+      icon: "💻",
+      url: "", // Pega aquí el enlace de tu título oficial de Hack4u
+      description: "Bases y metodología estructurada de intrusión ética, reconocimiento pasivo/activo, OSINT, escaneo de puertos y análisis de superficie de ataque.",
+      skills: ["Reconocimiento", "OSINT", "Escaneo de Redes", "Conceptos de Explotación", "Metodología Ofensiva"]
+    },
+    {
+      id: "hack4u-linux",
+      name: "Introducción a Linux & Administración",
+      issuer: "Hack4u",
+      year: "2025",
+      status: "Certificado Oficial",
+      icon: "🐧",
+      url: "", // Pega aquí el enlace de tu título oficial de Hack4u
+      description: "Administración avanzada de sistemas GNU/Linux por consola, automatización con Bash scripting, permisos especiales (SUID, SGID, Capabilities) y tratamiento de streams.",
+      skills: ["GNU/Linux CLI", "Bash Scripting", "Permisos SUID/SGID", "Gestión de Procesos", "RegEx & Filtrado"]
+    }
   ],
   wiki: {
     url: "https://pyrhos.gitbook.io",

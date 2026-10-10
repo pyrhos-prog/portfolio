@@ -359,26 +359,71 @@ export class CardsView {
                   </div>
                 `).join('')}
               </div>
-
-              <!-- Tarjeta de Certificaciones -->
-              <div class="timeline-glass-card certs-glass-box">
-                <div class="certs-header-row">
-                  <span class="certs-icon">📜</span>
-                  <h4 class="certs-title">Certificaciones Profesionales & Acreditaciones</h4>
-                </div>
-                <div class="certs-list">
-                  ${profileData.certifications.map(c => `
-                    <div class="cert-item">
-                      <div class="cert-info">
-                        <span class="cert-name">${c.name}</span>
-                        <span class="cert-issuer">${c.issuer} // ${c.year}</span>
-                      </div>
-                      <span class="badge badge-purple">${c.status}</span>
-                    </div>
-                  `).join('')}
-                </div>
-              </div>
             </div>
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  renderCertificationsSection() {
+    return `
+      <section class="section-container" id="certificaciones">
+        <div class="cyber-container">
+          <div class="section-header">
+            <div class="section-tag">[ 04. CERTIFICACIONES_Y_CREDENCIALES ]</div>
+            <h2 class="section-title">Certificaciones & Acreditaciones</h2>
+            <p class="section-desc">Especializaciones técnicas prácticas, credenciales oficiales de seguridad ofensiva y formaciones avanzadas.</p>
+          </div>
+
+          <div class="cards-grid certs-grid" id="certifications-grid">
+            ${profileData.certifications.map(cert => {
+              const hasUrl = cert.url && cert.url.trim() !== '' && cert.url !== '#';
+              const isCertified = (cert.status || '').toLowerCase().includes('certificado');
+              const badgeClass = isCertified ? 'badge-certified' : 'badge-in-progress';
+              
+              return `
+                <div class="cyber-card card-cert ${hasUrl ? 'card-clickable' : ''}" data-url="${cert.url || ''}">
+                  <div class="card-glow-edge"></div>
+                  
+                  <div class="card-header cert-card-header">
+                    <div class="cert-icon-wrapper">
+                      <span class="cert-icon">${cert.icon || '📜'}</span>
+                      <span class="cert-issuer-badge">${cert.issuer}</span>
+                    </div>
+                    <div class="cert-header-right">
+                      <span class="badge ${badgeClass}">
+                        ${isCertified ? '✓ ' : '⏳ '}${cert.status}
+                      </span>
+                      <span class="card-date">${cert.year}</span>
+                    </div>
+                  </div>
+
+                  <h3 class="card-title cert-card-title">${cert.name}</h3>
+
+                  <p class="card-summary cert-card-summary">
+                    ${cert.description}
+                  </p>
+
+                  <div class="card-tags cert-skills-wrap">
+                    ${(cert.skills || []).map(s => `<span class="badge badge-tag">#${s}</span>`).join(' ')}
+                  </div>
+
+                  <div class="card-footer cert-card-footer">
+                    ${hasUrl ? `
+                      <a href="${cert.url}" target="_blank" rel="noopener noreferrer" class="btn-cert-verify" title="Ver credencial oficial">
+                        <span>Verificar Credencial &rarr;</span>
+                      </a>
+                    ` : `
+                      <span class="btn-cert-placeholder" title="Pega el enlace en src/content/profile/data.js">
+                        <span>🔗 Añadir enlace en data.js &rarr;</span>
+                      </span>
+                    `}
+                    <span class="cert-id-tag">[ID: ${cert.id ? cert.id.toUpperCase() : 'CERT'}]</span>
+                  </div>
+                </div>
+              `;
+            }).join('')}
           </div>
         </div>
       </section>
@@ -390,7 +435,7 @@ export class CardsView {
       <section class="section-container" id="skills">
         <div class="cyber-container">
           <div class="section-header">
-            <div class="section-tag">[ 04. ARSENAL_TECNOLOGICO ]</div>
+            <div class="section-tag">[ 05. ARSENAL_TECNOLOGICO ]</div>
             <h2 class="section-title">Habilidades & Herramientas</h2>
             <p class="section-desc">Stack técnico utilizado en auditorías, defensa y administración de servidores.</p>
           </div>
@@ -423,7 +468,7 @@ export class CardsView {
       <section class="section-container" id="wiki">
         <div class="cyber-container">
           <div class="section-header">
-            <div class="section-tag">[ 05. BASE_DE_CONOCIMIENTO_PUBLICA ]</div>
+            <div class="section-tag">[ 06. BASE_DE_CONOCIMIENTO_PUBLICA ]</div>
             <h2 class="section-title">Wiki Técnica & Recursos</h2>
             <p class="section-desc">Documentación, apuntes estructurados y cheatsheets de ciberseguridad ofensiva en español alojados en GitBook.</p>
           </div>
@@ -487,114 +532,15 @@ export class CardsView {
     `;
   }
 
-  renderContactSection() {
-    return `
-      <section class="section-container" id="contacto">
-        <div class="cyber-container">
-          <div class="section-header">
-            <div class="section-tag">[ 06. CANALES_DE_COMUNICACION ]</div>
-            <h2 class="section-title">Contacto & Enlaces Oficiales</h2>
-            <p class="section-desc">Canales de comunicación directa, perfiles de seguridad ofensiva y clave pública.</p>
-          </div>
-
-          <div class="guide-contact-grid">
-            <!-- Columna Izquierda: Plataformas y Enlaces -->
-            <div class="contact-card">
-              <h3 class="guide-title">
-                <span class="text-neon">📡</span> Plataformas & Perfiles
-              </h3>
-              <p class="guide-desc">
-                Documentación técnica, repositorios de investigación ofensiva y perfil en plataformas de hacking.
-              </p>
-
-              <div class="contact-links-list">
-                <a href="${profileData.socials.gitbook}" target="_blank" class="contact-link-item">
-                  <span class="link-icon">📚</span>
-                  <div>
-                    <b>Wiki Técnica (GitBook)</b>
-                    <span class="link-sub">${profileData.socials.gitbook}</span>
-                  </div>
-                </a>
-                <a href="${profileData.socials.beacons}" target="_blank" class="contact-link-item">
-                  <span class="link-icon">🌐</span>
-                  <div>
-                    <b>Hub Personal (Beacons)</b>
-                    <span class="link-sub">${profileData.socials.beacons}</span>
-                  </div>
-                </a>
-                <a href="${profileData.socials.github}" target="_blank" class="contact-link-item">
-                  <span class="link-icon">⚡</span>
-                  <div>
-                    <b>GitHub</b>
-                    <span class="link-sub">${profileData.socials.github}</span>
-                  </div>
-                </a>
-                <a href="${profileData.socials.hackthebox}" target="_blank" class="contact-link-item">
-                  <span class="link-icon">🚩</span>
-                  <div>
-                    <b>HackTheBox (Rango Hacker)</b>
-                    <span class="link-sub">${profileData.socials.hackthebox}</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <!-- Columna Derecha: Contacto Directo & Clave PGP -->
-            <div class="contact-card">
-              <h3 class="guide-title">
-                <span class="text-neon">🔐</span> Contacto Directo & Cifrado
-              </h3>
-              <p class="guide-desc">
-                Canal directo para comunicaciones profesionales, consultas técnicas y coordinación de proyectos.
-              </p>
-
-              <div class="contact-details-box">
-                <div class="contact-detail-row">
-                  <span class="detail-label">📧 Correo:</span>
-                  <span class="detail-value text-neon">${profileData.socials.email}</span>
-                </div>
-                <div class="contact-detail-row">
-                  <span class="detail-label">📍 Ubicación:</span>
-                  <span class="detail-value">Segovia, España (CET / UTC+1)</span>
-                </div>
-                <div class="contact-detail-row">
-                  <span class="detail-label">⚡ Estado:</span>
-                  <span class="detail-value" style="color: var(--accent-emerald);">● Conectado & Operativo</span>
-                </div>
-              </div>
-
-              <div class="contact-cta-action" style="display: flex; gap: 0.8rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-                <a href="mailto:${profileData.socials.email}" class="btn-cyber-primary" style="flex: 1; justify-content: center;">
-                  <span>✉️ Enviar Correo</span>
-                </a>
-                <button id="btn-copy-email" class="btn-cyber-secondary" style="flex: 1; justify-content: center;">
-                  <span>📋 Copiar Email</span>
-                </button>
-              </div>
-
-              <div class="pgp-box">
-                <div class="pgp-header">
-                  <span>🔐 PGP FINGERPRINT</span>
-                  <button id="btn-copy-pgp" class="btn-copy-tiny">Copiar</button>
-                </div>
-                <code class="pgp-code" id="pgp-code-text">${profileData.socials.pgp}</code>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    `;
-  }
-
   renderAll() {
     return `
       ${this.renderHero()}
       ${this.renderProjectsSection()}
       ${this.renderCtfsSection()}
       ${this.renderTimelineSection()}
+      ${this.renderCertificationsSection()}
       ${this.renderSkillsSection()}
       ${this.renderWikiSection()}
-      ${this.renderContactSection()}
     `;
   }
 
@@ -621,6 +567,17 @@ export class CardsView {
         e.stopPropagation();
         const slug = btn.getAttribute('data-slug');
         if (this.onRunInTerminal) this.onRunInTerminal(`cat ${slug}`);
+      });
+    });
+
+    // Certification card click -> open credential URL
+    container.querySelectorAll('.card-cert').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const url = card.getAttribute('data-url');
+        if (url && url.trim() !== '' && url !== '#') {
+          if (e.target.closest('a')) return; // Allow <a> to operate naturally
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
       });
     });
 
@@ -668,29 +625,6 @@ export class CardsView {
     if (heroBtn) {
       heroBtn.addEventListener('click', () => {
         if (this.onRunInTerminal) this.onRunInTerminal('help');
-      });
-    }
-
-    // PGP Copy button
-    const pgpBtn = document.getElementById('btn-copy-pgp');
-    if (pgpBtn) {
-      pgpBtn.addEventListener('click', () => {
-        const text = document.getElementById('pgp-code-text')?.innerText || '';
-        navigator.clipboard.writeText(text);
-        soundFx.success();
-        pgpBtn.textContent = '¡Copiado!';
-        setTimeout(() => pgpBtn.textContent = 'Copiar', 2000);
-      });
-    }
-
-    // Email Copy button
-    const emailBtn = document.getElementById('btn-copy-email');
-    if (emailBtn) {
-      emailBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText(profileData.socials.email);
-        soundFx.success();
-        emailBtn.textContent = '¡Copiado!';
-        setTimeout(() => emailBtn.innerHTML = '<span>📋 Copiar Email</span>', 2000);
       });
     }
   }

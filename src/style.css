@@ -795,6 +795,136 @@ body.layout-split-view .terminal-container.terminal-active {
 }
 
 /* ===================================================================
+   CERTIFICATIONS SECTION & CARDS
+   =================================================================== */
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.6rem;
+}
+.card-cert {
+  position: relative;
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  background: linear-gradient(145deg, rgba(19, 11, 36, 0.9) 0%, rgba(10, 6, 20, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-cert:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.25), var(--shadow-card);
+  transform: translateY(-5px);
+}
+.cert-card-header {
+  margin-bottom: 1rem;
+}
+.cert-icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.cert-icon {
+  font-size: 1.6rem;
+}
+.cert-issuer-badge {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+.cert-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.badge-certified {
+  background: rgba(16, 185, 129, 0.16);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.45);
+}
+.badge-in-progress {
+  background: rgba(168, 85, 247, 0.18);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.5);
+}
+.cert-card-title {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+  line-height: 1.35;
+}
+.cert-card-summary {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+.cert-skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.4rem;
+}
+.cert-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.1rem;
+  margin-top: auto;
+}
+.btn-cert-verify {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(126, 34, 206, 0.25));
+  border: 1px solid var(--accent-primary);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+}
+.btn-cert-verify:hover {
+  background: var(--accent-primary);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateX(4px);
+  color: #ffffff;
+}
+.btn-cert-placeholder {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+.card-clickable {
+  cursor: pointer;
+}
+.cert-id-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ===================================================================
    GLASSMORPHISM TIMELINE & CAREER MILESTONES
    =================================================================== */
 

@@ -222,6 +222,11 @@ export class Terminal {
         this.cmdEdu();
         break;
 
+      case 'certs':
+      case 'certificaciones':
+        this.cmdCerts();
+        break;
+
       case 'ctf':
       case 'ctfs':
         this.cmdCtf();
@@ -304,7 +309,8 @@ export class Terminal {
         <div class="help-row"><span class="cmd-name">whoami</span><span class="cmd-desc">Perfil profesional, identidad y bio</span></div>
         <div class="help-row"><span class="cmd-name">skills</span><span class="cmd-desc">Matriz de competencias y herramientas técnicas</span></div>
         <div class="help-row"><span class="cmd-name">exp</span><span class="cmd-desc">Trayectoria laboral y experiencia en sistemas</span></div>
-        <div class="help-row"><span class="cmd-name">edu</span><span class="cmd-desc">Formación académica y certificaciones</span></div>
+        <div class="help-row"><span class="cmd-name">edu</span><span class="cmd-desc">Formación académica reglada (ASIR, Telecom)</span></div>
+        <div class="help-row"><span class="cmd-name">certs</span><span class="cmd-desc">Certificaciones oficiales y credenciales técnicas</span></div>
         <div class="help-row"><span class="cmd-name">ctf</span><span class="cmd-desc">Estadísticas y retos resueltos (HTB, THM)</span></div>
         <div class="help-row"><span class="cmd-name">neofetch</span><span class="cmd-desc">Resumen del sistema hacker con banner ASCII</span></div>
         <div class="help-row"><span class="cmd-name">gui [seccion]</span><span class="cmd-desc">Navega la interfaz visual (inicio, projects, ctfs, exp, contact)</span></div>
@@ -471,6 +477,22 @@ export class Terminal {
     this.printLine(output);
   }
 
+  cmdCerts() {
+    let output = `<b class="text-neon">📜 CERTIFICACIONES & ACREDITACIONES:</b><br/><br/>`;
+    profileData.certifications.forEach(cert => {
+      const hasUrl = cert.url && cert.url.trim() !== '' && cert.url !== '#';
+      output += `
+        <div class="timeline-item-term" style="margin-bottom: 0.8rem;">
+          <div class="text-purple"><b>${cert.name}</b> <span class="badge badge-purple">${cert.status}</span></div>
+          <div class="text-muted">${cert.issuer} // ${cert.year}</div>
+          <p class="text-light">${cert.description}</p>
+          ${hasUrl ? `<a href="${cert.url}" target="_blank" class="text-neon">🔗 Ver Credencial Oficial &rarr;</a><br/>` : ''}
+        </div>
+      `;
+    });
+    this.printLine(output);
+  }
+
   cmdCtf() {
     const ctfs = getCtfs();
     let output = `
@@ -567,7 +589,7 @@ export class Terminal {
     const val = this.input.value.trim();
     const parts = val.split(' ');
     if (parts.length === 1) {
-      const commands = ['help', 'ls', 'cat', 'open', 'whoami', 'skills', 'exp', 'edu', 'ctf', 'wiki', 'neofetch', 'theme', 'gui', 'matrix', 'audio', 'contact', 'clear', 'exit'];
+      const commands = ['help', 'ls', 'cat', 'open', 'whoami', 'skills', 'exp', 'edu', 'certs', 'ctf', 'wiki', 'neofetch', 'theme', 'gui', 'matrix', 'audio', 'contact', 'clear', 'exit'];
       const matches = commands.filter(c => c.startsWith(val));
       if (matches.length === 1) {
         this.input.value = matches[0] + ' ';
