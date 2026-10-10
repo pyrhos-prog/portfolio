@@ -31,46 +31,75 @@ export const profileData = {
   ],
   experience: [
     {
-      period: "2024 - Presente",
-      role: "SysAdmin & Monitorización de Seguridad",
-      company: "Laboratorio Personal / Proyectos Independientes",
-      location: "Remoto",
-      description: "Despliegue y administración de VPS público con honeypots interactivos (Cowrie) para captura y telemetría de amenazas globales. Configuración de pipelines con Grafana Alloy y Loki.",
+      period: "2025 - PRESENTE",
+      isCurrent: true,
+      role: "Desarrollador Frontend Senior & UI/UX Tech Lead",
+      company: "TechCorp Inc.",
+      location: "Madrid / Remoto",
+      badgeColor: "emerald",
+      icon: "⚛️",
+      description: "Liderazgo técnico en la arquitectura de interfaces, diseño de sistemas escalables y optimización de rendimiento en aplicaciones web de misión crítica.",
       highlights: [
-        "Monitorización activa de más de 25,000 intentos de intrusión mensuales.",
-        "Automatización de alertas y correlación de vectores de ataque con GeoIP.",
-        "Mantenimiento de infraestructura dockerizada con políticas de firewall estrictas."
-      ]
+        "Lideré el diseño y despliegue del nuevo Design System corporativo modular, reduciendo la deuda técnica en un 35% y acelerando en un 50% los ciclos de entrega de nuevos componentes.",
+        "Optimicé los Core Web Vitals y flujos de renderizado, logrando puntuaciones Lighthouse de 98+ y reduciendo los tiempos de carga percibidos por debajo de 800ms.",
+        "Arquitecté la integración de microservicios y APIs en tiempo real mediante WebSockets y GraphQL, garantizando una experiencia de usuario fluida y libre de latencia."
+      ],
+      skills: ["React 19", "TypeScript", "Next.js", "TailwindCSS", "GraphQL", "WebSockets", "UI/UX"]
     },
     {
-      period: "2023 - 2024",
-      role: "Técnico de Sistemas & Redes",
-      company: "Prácticas / Soporte TI",
+      period: "2023 - 2025",
+      isCurrent: false,
+      role: "Desarrollador Web Full Stack & DevOps",
+      company: "Innova Software",
       location: "España",
-      description: "Administración de redes locales, configuración de servidores Linux/Windows y gestión de copias de seguridad automatizadas.",
+      badgeColor: "purple",
+      icon: "⚡",
+      description: "Desarrollo integral de plataformas SaaS de alto tráfico, diseño de arquitecturas cloud y automatización de procesos de ingeniería del software.",
       highlights: [
-        "Desarrollo de scripts en Bash y Python para tareas recurrentes de mantenimiento.",
-        "Implementación de auditorías básicas de seguridad en servicios expuestos."
-      ]
+        "Construí e iteré servicios backend altamente concurrentes con Node.js, Express y PostgreSQL, optimizando consultas complejas y reduciendo el tiempo de respuesta de API en un 40%.",
+        "Diseñé arquitecturas de microservicios desacoplados y flujos ágiles, mejorando la disponibilidad global del sistema hasta un 99.9%.",
+        "Implementé pipelines automatizados de CI/CD con Docker y GitHub Actions, garantizando pruebas unitarias automatizadas y despliegues sin tiempo de inactividad (zero-downtime)."
+      ],
+      skills: ["Node.js", "Express", "PostgreSQL", "Docker", "CI/CD", "REST APIs", "Jest"]
     }
   ],
   education: [
     {
-      period: "2023 - 2025",
-      degree: "CFGS Administración de Sistemas Informáticos en Red (ASIR)",
-      institution: "Centro de Estudios Tecnológicos",
-      description: "Especialización en redes y telecomunicaciones, administración avanzada de servidores Linux/Windows, seguridad informática y servicios de red."
+      period: "2019 - 2023",
+      isCurrent: false,
+      degree: "Grado en Ingeniería Informática",
+      institution: "Universidad de Barcelona / Escuela Técnica Superior",
+      location: "Barcelona",
+      badgeColor: "purple",
+      icon: "🎓",
+      description: "Formación universitaria superior enfocada en ingeniería del software, algoritmia avanzada, sistemas distribuidos y arquitectura de computadores.",
+      highlights: [
+        "Especialización en Ingeniería del Software y Tecnologías Web, con foco en estructuras de datos complejas, bases de datos relacionales y redes distribuidas.",
+        "Matrícula de Honor en el Proyecto Final de Grado por el diseño e implementación de una plataforma web distribuida y escalable.",
+        "Mención de Excelencia Académica en Algoritmia Avanzada, Computación Paralela y Seguridad de Sistemas."
+      ],
+      skills: ["Algoritmia", "Arquitectura Software", "Sistemas Distribuidos", "Redes & Protocolos", "Bases de Datos"]
     },
     {
-      period: "2024",
-      degree: "Especialización en Ciberseguridad & Pentesting",
-      institution: "Formación Continua / Plataformas Prácticas",
-      description: "Resolución de máquinas y laboratorios en HackTheBox, TryHackMe y retos de CTFtime centrados en OWASP Top 10 y escalada de privilegios."
+      period: "2023 - 2024",
+      isCurrent: false,
+      degree: "Programa Avanzado en Frontend Architecture & UI/UX",
+      institution: "Escuela de Tecnología & Desarrollo Web",
+      location: "Online / Especialización",
+      badgeColor: "cyan",
+      icon: "💻",
+      description: "Especialización intensiva en patrones arquitectónicos avanzados de frontend, accesibilidad web internacional (WCAG) y rendimiento de cliente.",
+      highlights: [
+        "Dominio profundo del ciclo de renderizado de React, gestión de estado reactiva compleja (Zustand, Redux Toolkit) y Micro-Frontends.",
+        "Implementación de estándares de accesibilidad WCAG 2.1 AA y creación de microanimaciones fluidas a 60fps orientadas a producto premium.",
+        "Auditoría y securización de clientes web frente a vectores de ataque comunes (XSS, CSRF y sanitización de dependencias NPM)."
+      ],
+      skills: ["Micro-Frontends", "State Management", "WCAG 2.1", "Micro-Animations", "Web Security"]
     }
   ],
   certifications: [
-    { name: "eJPTv2 (en preparación)", issuer: "INE Security", year: "2026", status: "In Progress" },
-    { name: "CompTIA Security+ / Linux+", issuer: "CompTIA", year: "2025", status: "Completado" },
-    { name: "TryHackMe Top 5% Global", issuer: "TryHackMe", year: "2024", status: "Logro" }
+    { name: "Meta Frontend Professional Certificate", issuer: "Meta", year: "2024", status: "Certificado" },
+    { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", year: "2025", status: "Completado" },
+    { name: "CompTIA Security+ / Linux Professional", issuer: "CompTIA", year: "2024", status: "Acreditado" }
   ]
 };

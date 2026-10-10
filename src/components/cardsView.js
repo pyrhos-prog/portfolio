@@ -235,29 +235,66 @@ export class CardsView {
       <section class="section-container" id="trayectoria">
         <div class="cyber-container">
           <div class="section-header">
-            <div class="section-tag">[ 03. HISTORIAL_Y_FORMACION ]</div>
+            <div class="section-tag">[ 03. HISTORIAL_Y_TRAYECTORIA ]</div>
             <h2 class="section-title">Experiencia & Educación</h2>
-            <p class="section-desc">Trayectoria técnica, administración de sistemas y formación académica especializada.</p>
+            <p class="section-desc">Evolución técnica, liderazgo en proyectos web de alto impacto y formación académica continua.</p>
           </div>
 
           <div class="timeline-dual-grid">
-            <!-- Columna Experiencia -->
+            <!-- Columna Experiencia Laboral -->
             <div class="timeline-column">
-              <h3 class="timeline-col-title">
-                <span class="text-neon">⚡</span> Experiencia Laboral & Infraestructura
-              </h3>
+              <div class="timeline-column-header">
+                <span class="col-icon-badge">💼</span>
+                <div>
+                  <h3 class="timeline-col-title">Experiencia Laboral</h3>
+                  <span class="timeline-col-subtitle">Trayectoria profesional & roles técnicos</span>
+                </div>
+              </div>
+
               <div class="timeline-tree">
                 ${profileData.experience.map(exp => `
-                  <div class="timeline-node">
-                    <div class="node-marker"></div>
-                    <div class="node-content">
-                      <div class="node-period">${exp.period}</div>
-                      <h4 class="node-title">${exp.role}</h4>
-                      <div class="node-subtitle">${exp.company} // 📍 ${exp.location}</div>
-                      <p class="node-desc">${exp.description}</p>
-                      <ul class="node-bullets">
-                        ${exp.highlights.map(h => `<li>${h}</li>`).join('')}
+                  <div class="timeline-node ${exp.isCurrent ? 'node-current' : ''}">
+                    <div class="node-marker ${exp.isCurrent ? 'marker-pulse' : ''}">
+                      <div class="marker-core"></div>
+                    </div>
+                    
+                    <div class="timeline-glass-card">
+                      <div class="card-glow-reflection"></div>
+                      <div class="timeline-card-header">
+                        <div class="capsule-wrap">
+                          ${exp.isCurrent 
+                            ? `<span class="badge-capsule badge-capsule-current"><span class="badge-dot-live"></span>${exp.period}</span>`
+                            : `<span class="badge-capsule badge-capsule-historical">${exp.period}</span>`
+                          }
+                        </div>
+                        <span class="milestone-badge-icon">${exp.icon || '💼'}</span>
+                      </div>
+
+                      <h4 class="timeline-role-title">${exp.role}</h4>
+                      
+                      <div class="timeline-company-row">
+                        <span class="company-name">🏢 ${exp.company}</span>
+                        <span class="company-sep">•</span>
+                        <span class="company-location">📍 ${exp.location}</span>
+                      </div>
+
+                      <p class="timeline-card-desc">${exp.description}</p>
+
+                      <div class="timeline-achievements-title">🎯 Logros Clave & Responsabilidades:</div>
+                      <ul class="timeline-bullet-list">
+                        ${exp.highlights.map(h => `
+                          <li>
+                            <span class="bullet-arrow">▹</span>
+                            <span class="bullet-text">${h}</span>
+                          </li>
+                        `).join('')}
                       </ul>
+
+                      ${exp.skills && exp.skills.length > 0 ? `
+                        <div class="timeline-tech-pills">
+                          ${exp.skills.map(s => `<span class="pill-tech-tag">${s}</span>`).join('')}
+                        </div>
+                      ` : ''}
                     </div>
                   </div>
                 `).join('')}
@@ -266,29 +303,72 @@ export class CardsView {
 
             <!-- Columna Educación & Certificaciones -->
             <div class="timeline-column">
-              <h3 class="timeline-col-title">
-                <span class="text-neon">🎓</span> Educación & Certificaciones
-              </h3>
+              <div class="timeline-column-header">
+                <span class="col-icon-badge">🎓</span>
+                <div>
+                  <h3 class="timeline-col-title">Estudios & Formación</h3>
+                  <span class="timeline-col-subtitle">Grados académicos & especialización técnica</span>
+                </div>
+              </div>
+
               <div class="timeline-tree">
                 ${profileData.education.map(edu => `
                   <div class="timeline-node">
-                    <div class="node-marker"></div>
-                    <div class="node-content">
-                      <div class="node-period">${edu.period}</div>
-                      <h4 class="node-title">${edu.degree}</h4>
-                      <div class="node-subtitle">${edu.institution}</div>
-                      <p class="node-desc">${edu.description}</p>
+                    <div class="node-marker">
+                      <div class="marker-core"></div>
+                    </div>
+
+                    <div class="timeline-glass-card">
+                      <div class="card-glow-reflection"></div>
+                      <div class="timeline-card-header">
+                        <div class="capsule-wrap">
+                          <span class="badge-capsule badge-capsule-historical">${edu.period}</span>
+                        </div>
+                        <span class="milestone-badge-icon">${edu.icon || '🎓'}</span>
+                      </div>
+
+                      <h4 class="timeline-role-title">${edu.degree}</h4>
+                      
+                      <div class="timeline-company-row">
+                        <span class="company-name">🏛️ ${edu.institution}</span>
+                        ${edu.location ? `<span class="company-sep">•</span><span class="company-location">📍 ${edu.location}</span>` : ''}
+                      </div>
+
+                      <p class="timeline-card-desc">${edu.description}</p>
+
+                      <div class="timeline-achievements-title">📚 Asignaturas Clave & Logros Académicos:</div>
+                      <ul class="timeline-bullet-list">
+                        ${edu.highlights.map(h => `
+                          <li>
+                            <span class="bullet-arrow">▹</span>
+                            <span class="bullet-text">${h}</span>
+                          </li>
+                        `).join('')}
+                      </ul>
+
+                      ${edu.skills && edu.skills.length > 0 ? `
+                        <div class="timeline-tech-pills">
+                          ${edu.skills.map(s => `<span class="pill-tech-tag">${s}</span>`).join('')}
+                        </div>
+                      ` : ''}
                     </div>
                   </div>
                 `).join('')}
               </div>
 
-              <div class="certs-card">
-                <h4 class="certs-title">📜 Certificaciones & Logros</h4>
+              <!-- Tarjeta de Certificaciones -->
+              <div class="timeline-glass-card certs-glass-box">
+                <div class="certs-header-row">
+                  <span class="certs-icon">📜</span>
+                  <h4 class="certs-title">Certificaciones Profesionales & Acreditaciones</h4>
+                </div>
                 <div class="certs-list">
                   ${profileData.certifications.map(c => `
                     <div class="cert-item">
-                      <div class="cert-name"><b>${c.name}</b> <span class="text-muted">(${c.issuer})</span></div>
+                      <div class="cert-info">
+                        <span class="cert-name">${c.name}</span>
+                        <span class="cert-issuer">${c.issuer} // ${c.year}</span>
+                      </div>
                       <span class="badge badge-purple">${c.status}</span>
                     </div>
                   `).join('')}
