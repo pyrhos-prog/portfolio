@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es" data-theme="purple">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pyrhos // Cybersecurity Lab & CTF Portfolio</title>
+    <meta name="description" content="Portfolio de ciberseguridad, honeypots, infraestructura Linux y writeups de CTF (HackTheBox, TryHackMe) de Pyrhos con terminal interactiva." />
+    <meta name="keywords" content="cybersecurity, portfolio, hacker, terminal, ctf, writeup, honeypot, cowrie, linux, sysadmin, pyrhos" />
+    <meta name="author" content="Pyrhos" />
+    <meta name="theme-color" content="#07040d" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- Highlight.js Theme (Atom One Dark modified) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  </head>
+  <body class="theme-purple">
+    <!-- Matrix Rain Canvas Background -->
+    <canvas id="matrix-canvas" class="matrix-canvas"></canvas>
+
+    <!-- Scanlines / CRT Overlay -->
+    <div id="crt-overlay" class="crt-overlay crt-disabled"></div>
+
+    <!-- Main Navigation Header -->
+    <header id="main-navbar" class="main-navbar"></header>
+
+    <!-- App Main Layout Container -->
+    <div id="app-layout" class="app-layout">
+      <!-- Main GUI Content -->
+      <main id="gui-content" class="gui-content"></main>
+
+      <!-- Interactive Terminal Container (Floating / Docked / Split) -->
+      <aside id="terminal-container" class="terminal-container"></aside>
+    </div>
+
+    <!-- Modal Reader Container for Full Markdown Documents -->
+    <div id="modal-container" class="modal-container"></div>
+
+    <!-- Floating Terminal Opener Badge -->
+    <button id="floating-term-toggle" class="floating-term-toggle" title="Abrir Terminal Interactiva (Ctrl+K)">
+      <span class="float-pulse"></span>
+      <span class="float-icon">>_</span>
+      <span class="float-text">CLI</span>
+    </button>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
