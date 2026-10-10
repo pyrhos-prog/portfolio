@@ -487,57 +487,56 @@ export class CardsView {
     `;
   }
 
-  renderGuideAndContactSection() {
+  renderContactSection() {
     return `
       <section class="section-container" id="contacto">
         <div class="cyber-container">
           <div class="section-header">
-            <div class="section-tag">[ 06. WORKFLOW_Y_CONTACTO ]</div>
-            <h2 class="section-title">Contacto & Guía de Contenido</h2>
-            <p class="section-desc">Canales de comunicación segura y cómo añadir nuevos writeups o proyectos.</p>
+            <div class="section-tag">[ 06. CANALES_DE_COMUNICACION ]</div>
+            <h2 class="section-title">Contacto & Enlaces Oficiales</h2>
+            <p class="section-desc">Canales de comunicación directa, perfiles de seguridad ofensiva y clave pública.</p>
           </div>
 
           <div class="guide-contact-grid">
-            <!-- Guía de Subida de Archivos -->
-            <div class="guide-card">
+            <!-- Tarjeta de Perfil & Objetivos -->
+            <div class="contact-card">
               <h3 class="guide-title">
-                <span class="text-neon">⚡</span> ¿Cómo subir nuevos Proyectos y CTFs?
+                <span class="text-neon">🛡️</span> Disponibilidad & Colaboraciones
               </h3>
               <p class="guide-desc">
-                Este portfolio lee automáticamente los archivos Markdown en tiempo de ejecución. <b>No necesitas modificar código HTML ni JavaScript.</b>
+                Abierto a nuevos retos técnicos y oportunidades profesionales en <b>Red Team</b>, <b>Pentesting Junior</b>, simulación de adversarios y proyectos de ciberseguridad ofensiva o de infraestructura.
               </p>
-              <div class="guide-steps">
-                <div class="guide-step">
-                  <span class="step-num">1</span>
-                  <div>
-                    <b>Para un nuevo Proyecto:</b> Crea un archivo <code>nombre-proyecto.md</code> dentro de <code>src/content/projects/</code>.
-                  </div>
+
+              <div class="contact-details-box">
+                <div class="contact-detail-row">
+                  <span class="detail-label">📍 Ubicación:</span>
+                  <span class="detail-value">Segovia, España (Disponible Remoto / Híbrido)</span>
                 </div>
-                <div class="guide-step">
-                  <span class="step-num">2</span>
-                  <div>
-                    <b>Para un nuevo CTF:</b> Crea un archivo <code>nombre-reto.md</code> dentro de <code>src/content/ctfs/</code>.
-                  </div>
+                <div class="contact-detail-row">
+                  <span class="detail-label">🎯 Objetivo:</span>
+                  <span class="detail-value">Red Team / Pentesting / Adversary Emulation</span>
                 </div>
-                <div class="guide-step">
-                  <span class="step-num">3</span>
-                  <div>
-                    <b>Plantillas listas:</b> Puedes duplicar <code>_template.md</code> ubicado en cada carpeta para mantener la misma estructura de frontmatter.
-                  </div>
+                <div class="contact-detail-row">
+                  <span class="detail-label">🎓 Formación:</span>
+                  <span class="detail-value">CFGS ASIR (en curso) + CFGM Telecomunicaciones</span>
                 </div>
-                <div class="guide-step">
-                  <span class="step-num">4</span>
-                  <div>
-                    <b>Despliegue automático:</b> Al hacer <code>git push</code> a GitHub, el GitHub Action compilará y publicará tus cambios al instante.
-                  </div>
+                <div class="contact-detail-row">
+                  <span class="detail-label">⚡ Rango HTB:</span>
+                  <span class="detail-value text-neon">Hacker Oficial</span>
                 </div>
+              </div>
+
+              <div class="contact-cta-action">
+                <a href="mailto:${profileData.socials.email}" class="btn-cyber-primary" style="width: 100%; justify-content: center;">
+                  <span>📧 Contactar por Email (${profileData.socials.email})</span>
+                </a>
               </div>
             </div>
 
-            <!-- Canales de Contacto -->
+            <!-- Canales de Contacto & Enlaces -->
             <div class="contact-card">
               <h3 class="guide-title">
-                <span class="text-neon">📡</span> Canales de Enlace
+                <span class="text-neon">📡</span> Hub de Enlaces
               </h3>
               <div class="contact-links-list">
                 <a href="${profileData.socials.gitbook}" target="_blank" class="contact-link-item">
@@ -571,7 +570,7 @@ export class CardsView {
                 <a href="mailto:${profileData.socials.email}" class="contact-link-item">
                   <span class="link-icon">📧</span>
                   <div>
-                    <b>Email Seguro</b>
+                    <b>Email Directo</b>
                     <span class="link-sub">${profileData.socials.email}</span>
                   </div>
                 </a>
@@ -599,7 +598,7 @@ export class CardsView {
       ${this.renderTimelineSection()}
       ${this.renderSkillsSection()}
       ${this.renderWikiSection()}
-      ${this.renderGuideAndContactSection()}
+      ${this.renderContactSection()}
     `;
   }
 

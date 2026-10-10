@@ -26,17 +26,17 @@ export class Terminal {
       <div class="terminal-window">
         <div class="terminal-titlebar">
           <div class="terminal-dots">
-            <span class="dot dot-red" id="term-btn-close" title="Cerrar/Minimizar"></span>
-            <span class="dot dot-yellow" id="term-btn-minimize" title="Minimizar"></span>
-            <span class="dot dot-green" id="term-btn-maximize" title="Maximizar / Modo Pantalla Completa"></span>
+            <button type="button" class="dot dot-red" id="term-btn-close" aria-label="Cerrar terminal" title="Cerrar terminal"></button>
+            <button type="button" class="dot dot-yellow" id="term-btn-minimize" aria-label="Minimizar terminal" title="Minimizar terminal"></button>
+            <button type="button" class="dot dot-green" id="term-btn-maximize" aria-label="Pantalla completa" title="Alternar pantalla completa"></button>
           </div>
           <div class="terminal-title">
             <span class="terminal-icon">⚡</span>
             <span>${this.promptUser}@${this.promptHost}:${this.currentDir} — bash</span>
           </div>
           <div class="terminal-actions">
-            <button class="term-btn-action" id="term-btn-split" title="Alternar Split View">◫ Split</button>
-            <button class="term-btn-action" id="term-btn-clear" title="Limpiar (clear)">Clear</button>
+            <button type="button" class="term-btn-action" id="term-btn-split" title="Alternar Split View">◫ Split</button>
+            <button type="button" class="term-btn-action" id="term-btn-clear" title="Limpiar (clear)">Clear</button>
           </div>
         </div>
         <div class="terminal-body" id="term-body">
@@ -62,18 +62,48 @@ export class Terminal {
       this.input.focus();
     });
 
-    // Close / Minimize
+    // Close / Minimize / Maximize / Split / Clear
     const btnClose = document.getElementById('term-btn-close');
     const btnMin = document.getElementById('term-btn-minimize');
     const btnMax = document.getElementById('term-btn-maximize');
     const btnSplit = document.getElementById('term-btn-split');
     const btnClear = document.getElementById('term-btn-clear');
 
-    if (btnClose) btnClose.addEventListener('click', () => this.toggleTerminal(false));
-    if (btnMin) btnMin.addEventListener('click', () => this.toggleTerminal(false));
-    if (btnMax) btnMax.addEventListener('click', () => this.toggleFullscreen());
-    if (btnSplit) btnSplit.addEventListener('click', () => this.toggleSplit());
-    if (btnClear) btnClear.addEventListener('click', () => this.executeCommand('clear'));
+    if (btnClose) {
+      btnClose.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.closeTerminal();
+      });
+    }
+    if (btnMin) {
+      btnMin.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.closeTerminal();
+      });
+    }
+    if (btnMax) {
+      btnMax.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.toggleFullscreen();
+      });
+    }
+    if (btnSplit) {
+      btnSplit.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.toggleSplit();
+      });
+    }
+    if (btnClear) {
+      btnClear.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.executeCommand('clear');
+      });
+    }
 
     // Keyboard handlers
     this.input.addEventListener('keydown', (e) => {
@@ -563,26 +593,42 @@ export class Terminal {
     }
   }
 
+  closeTerminal() {
+    soundFx.key();
+    this.container.classList.remove('terminal-active');
+    this.container.classList.remove('terminal-fullscreen');
+    document.body.classList.remove('layout-split-view');
+    if (this.input) this.input.blur();
+  }
+
   toggleTerminal(forceState) {
     const isVisible = this.container.classList.contains('terminal-active');
     const newState = forceState !== undefined ? forceState : !isVisible;
 
     if (newState) {
       this.container.classList.add('terminal-active');
-      this.input.focus();
+      setTimeout(() => {
+        if (this.input) this.input.focus();
+      }, 50);
     } else {
-      this.container.classList.remove('terminal-active');
+      this.closeTerminal();
     }
     return newState;
   }
 
   toggleFullscreen() {
+    soundFx.key();
     this.container.classList.toggle('terminal-fullscreen');
     this.scrollToBottom();
   }
 
   toggleSplit() {
-    document.body.classList.toggle('layout-split-view');
+    soundFx.key();
+    const isSplit = document.body.classList.toggle('layout-split-view');
+    if (isSplit) {
+      this.container.classList.add('terminal-active');
+      this.container.classList.remove('terminal-fullscreen');
+    }
     this.scrollToBottom();
   }
 
