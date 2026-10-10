@@ -359,25 +359,6 @@ export class CardsView {
                   </div>
                 `).join('')}
               </div>
-
-              <!-- Tarjeta de Certificaciones -->
-              <div class="timeline-glass-card certs-glass-box">
-                <div class="certs-header-row">
-                  <span class="certs-icon">📜</span>
-                  <h4 class="certs-title">Certificaciones Profesionales & Acreditaciones</h4>
-                </div>
-                <div class="certs-list">
-                  ${profileData.certifications.map(c => `
-                    <div class="cert-item">
-                      <div class="cert-info">
-                        <span class="cert-name">${c.name}</span>
-                        <span class="cert-issuer">${c.issuer} // ${c.year}</span>
-                      </div>
-                      <span class="badge badge-purple">${c.status}</span>
-                    </div>
-                  `).join('')}
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -497,46 +478,11 @@ export class CardsView {
             <p class="section-desc">Canales de comunicación directa, perfiles de seguridad ofensiva y clave pública.</p>
           </div>
 
-          <div class="guide-contact-grid">
-            <!-- Tarjeta de Perfil & Objetivos -->
-            <div class="contact-card">
-              <h3 class="guide-title">
-                <span class="text-neon">🛡️</span> Disponibilidad & Colaboraciones
-              </h3>
-              <p class="guide-desc">
-                Abierto a nuevos retos técnicos y oportunidades profesionales en <b>Red Team</b>, <b>Pentesting Junior</b>, simulación de adversarios y proyectos de ciberseguridad ofensiva o de infraestructura.
-              </p>
-
-              <div class="contact-details-box">
-                <div class="contact-detail-row">
-                  <span class="detail-label">📍 Ubicación:</span>
-                  <span class="detail-value">Segovia, España (Disponible Remoto / Híbrido)</span>
-                </div>
-                <div class="contact-detail-row">
-                  <span class="detail-label">🎯 Objetivo:</span>
-                  <span class="detail-value">Red Team / Pentesting / Adversary Emulation</span>
-                </div>
-                <div class="contact-detail-row">
-                  <span class="detail-label">🎓 Formación:</span>
-                  <span class="detail-value">CFGS ASIR (en curso) + CFGM Telecomunicaciones</span>
-                </div>
-                <div class="contact-detail-row">
-                  <span class="detail-label">⚡ Rango HTB:</span>
-                  <span class="detail-value text-neon">Hacker Oficial</span>
-                </div>
-              </div>
-
-              <div class="contact-cta-action">
-                <a href="mailto:${profileData.socials.email}" class="btn-cyber-primary" style="width: 100%; justify-content: center;">
-                  <span>📧 Contactar por Email (${profileData.socials.email})</span>
-                </a>
-              </div>
-            </div>
-
+          <div class="guide-contact-grid" style="grid-template-columns: minmax(320px, 680px); justify-content: center;">
             <!-- Canales de Contacto & Enlaces -->
             <div class="contact-card">
               <h3 class="guide-title">
-                <span class="text-neon">📡</span> Hub de Enlaces
+                <span class="text-neon">📡</span> Canales de Enlace & Contacto
               </h3>
               <div class="contact-links-list">
                 <a href="${profileData.socials.gitbook}" target="_blank" class="contact-link-item">
